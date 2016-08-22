@@ -10,7 +10,7 @@ $(document).ready(function(){
 		var list = $('ul#mainList');
 		clearList();
 		$.ajax({
-			url: 'http://jsonplaceholder.typicode.com/posts',
+			url: 'https://jsonplaceholder.typicode.com/posts',
 			method: 'GET'
 		}).then(function(posts){
 			posts.forEach(function(post){
@@ -26,7 +26,7 @@ $(document).ready(function(){
 		var list = $('ul#mainList');
 		clearList();
 		$.ajax({
-			url: 'http://jsonplaceholder.typicode.com/posts/10',
+			url: 'https://jsonplaceholder.typicode.com/posts/10',
 			method: 'GET'
 		}).then(function(post){
 				var li = $('<li></li>');
@@ -41,7 +41,7 @@ $(document).ready(function(){
 		clearList();
 		$.ajax({
 			//url: 'http://jsonplaceholder.typicode.com/posts/12/comments', OR
-			url: 'http://jsonplaceholder.typicode.com/comments?postId=' +postId,
+			url: 'https://jsonplaceholder.typicode.com/comments?postId=' +postId,
 			method: 'GET'
 		}).then(function(comments){
 				var liButton = $('<li></li>');
@@ -64,7 +64,7 @@ $(document).ready(function(){
 		clearList();
 		$.ajax({
 			//url: 'http://jsonplaceholder.typicode.com/posts/12/comments', OR
-			url: 'http://jsonplaceholder.typicode.com/comments?postId=12',
+			url: 'https://jsonplaceholder.typicode.com/comments?postId=12',
 			method: 'GET'
 		}).then(function(comments){
 				comments.forEach(function(comment){
@@ -79,7 +79,7 @@ $(document).ready(function(){
 		var list = $('ul#mainList');
 		clearList();
 		$.ajax({
-			url: 'http://jsonplaceholder.typicode.com/posts?userId=2',
+			url: 'https://jsonplaceholder.typicode.com/posts?userId=2',
 			method: 'GET'
 		}).then(function(posts){
 				posts.forEach(function(post){
@@ -100,7 +100,7 @@ $(document).ready(function(){
 			var list = $('ul#mainList');
 			clearList();
 			$.ajax({
-				url: 'http://jsonplaceholder.typicode.com/posts',
+				url: 'https://jsonplaceholder.typicode.com/posts',
 				method: 'POST',
 				data : {d:newPost}
 			}).then(function(post){
@@ -119,7 +119,7 @@ $(document).ready(function(){
 		var list = $('ul#mainList');
 		clearList();
 		$.ajax({
-			url: 'http://jsonplaceholder.typicode.com/posts',
+			url: 'https://jsonplaceholder.typicode.com/posts',
 			method: 'GET'
 		}).then(function(posts){
 			posts.forEach(function(post){
