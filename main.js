@@ -120,10 +120,10 @@ $(document).ready(function(){
 		$.ajax({
 			url: 'https://jsonplaceholder.typicode.com/posts/12',
 			method: 'PUT',
-			data: {title: "New Title" }
+			data: {title: "Changed Title", body: "Changed Content" }
 		}).then(function(post){
 					var li = $('<li></li>');
-					li.text(post.title);
+					li.text(post.title + " ---- "+ post.body);
 					list.append(li);
 					console.log(post);	
 		});
