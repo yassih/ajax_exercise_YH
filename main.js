@@ -93,7 +93,7 @@ $(document).ready(function(){
 	$('#button05').on('click',function(){
 		var newPost = $('#text01').val();
 		if(newPost === ""){
-			alert('your post is empty');
+			alert('Empty post cannot be added.');
 		}
 		else{
 			console.log(newPost);
@@ -104,15 +104,45 @@ $(document).ready(function(){
 				method: 'POST',
 				data : {d:newPost}
 			}).then(function(post){
+			var list = $('ul#mainList');
+			var li = $('<li></li>');
+					li.text("A new post with the id of " + post.id + " has been added");
+					list.append(li);
 			console.log(post.id);	
 			});
 			$('#text01').val("");
 		}
 	});
 	//Replace the post with id of 12 and render the responseJSON
-	// $('#button06').on('click',function(){
+	$('#button06').on('click',function(){
+		var list = $('ul#mainList');
+		clearList();
+		$.ajax({
+			url: 'https://jsonplaceholder.typicode.com/posts/12',
+			method: 'PUT',
+			data: {title: "New Title" }
+		}).then(function(post){
+					var li = $('<li></li>');
+					li.text(post.title);
+					list.append(li);
+					console.log(post);	
+		});
 
-	// });
+
+	});
+	//Delete Post 12 and Render a success message 
+	$('#button08').on('click',function(){
+		var list = $('ul#mainList');
+		clearList();
+		$.ajax({
+			url: 'https://jsonplaceholder.typicode.com/posts/12',
+			method: 'DELETE'
+		}).then(function(){
+			var li = $('<li></li>');
+					li.text("Post 12 has been successfully deleted!");
+					list.append(li);	
+		})
+	});
 	//Function to get all posts
 	function getPosts(){
 
@@ -126,7 +156,7 @@ $(document).ready(function(){
 				var li = $('<li></li>');
 				
 				var a = $('<a href="#"></a>');
-				a.text(post.title);
+				a.text(post.id +" "+ post.title);
 				a.on('click',function(){
 					getPostComments(post.id);
 				})
